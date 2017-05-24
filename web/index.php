@@ -36,23 +36,13 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
-
-
-$app->get('/db/', function() use($app) {
-  $st = $app['pdo']->prepare('SELECT name FROM test_table');
-  $st->execute();
-
-  $names = array();
-  while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['name']);
-    $names[] = $row;
-  }
-
-  return $app['twig']->render('database.twig', array(
-    'names' => $names
+$app->get('/{number}', function($number) use($app) {
+  $app['monolog']->addDebug('Looking up '.$number);
+  return $app['twig']->render('result.twig', array(
+    'number' => $number,
+    'results' => $results
   ));
 });
 
-
-
+// MAGIC!!
 $app->run();
