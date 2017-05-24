@@ -3,7 +3,7 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="container">
-    <h1>{{ number }}</h1>
+    <h1>{{ number|number_format }}</h1>
     <p>is roughly equivalent to...</p>
   </div>
 </div>
@@ -12,7 +12,7 @@
     {% for result in results %}
       <li class="list-group-item">{{ result }}</li>
     {% else %}
-      <li class="list-group-item">{{ number }}</li>
+      <li class="list-group-item">{{ number|number_format }}</li>
     {% endfor %}
   </ul>
   
