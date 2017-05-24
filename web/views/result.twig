@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>{{ number }}</h1>
+    <p>is roughly equivalent to...</p>
+  </div>
+</div>
+<div class="container">
+  <ul class="list-group">
+    {% for result in results %}
+      <li class="list-group-item">{{ result }}</li>
+    {% else %}
+      <li class="list-group-item">{{ number }}</li>
+    {% endfor %}
+  </ul>
+  
+
+  <a type="button" class="btn btn-lg btn-default" href="https://github.com/tkn/roughlyequivalent"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+</div>
+
+{% endblock %}
