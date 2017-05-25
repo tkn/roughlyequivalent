@@ -14,7 +14,7 @@
         {% for result in results|sort %}
           <tr>
             <td class="text-right">{{ result.number }}</td>
-            <td>{{ result.description }} {{ result.source ? "<sup><a href='#{result.source}'>[source]</a></sup>"}}</td>
+            <td>{{ result.description }}{{ result.source ? " <sup><a href='#{result.source}'>[source]</a></sup>"|raw}}</td>
           </tr>
         {% else %}
           <tr>
