@@ -14,7 +14,7 @@
         {% for result in results|sort %}
           <tr>
             <td class="text-right">{{ result.hint ? "<strong>"|raw }}{{ result.number }}{{ result.hint ? "</strong>"|raw }}</td>
-            <td>{{ result.hint ? "<strong>"|raw }}{{ result.description }}{{ result.source ? " <sup><a href='#{result.source}'>[source]</a></sup>"|raw}}{{ result.hint ? "</strong>"|raw }}</td>
+            <td>{{ result.hint ? "<strong>"|raw }}{{ result.description }}{{ result.hint ? "</strong>"|raw }}{{ result.source ? " <sup><a href='#{result.source}'>[source]</a></sup>"|raw}}</td>
           </tr>
         {% else %}
           <tr>
