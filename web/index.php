@@ -40,7 +40,7 @@ $app->get('/{number}', function($number) use($app) {
   $app['monolog']->addDebug('Looking up '.$number);
 
   $st = $app['pdo']->prepare('SELECT number, description, source FROM numbers WHERE active = TRUE AND magnitude >= '.(strlen($number) - 1).' AND magnitude <= '.(strlen($number) + 1));
-  $app['monolog']->addDebug('SQL '.$st);
+  $app['monolog']->addDebug('SQL '.'SELECT number, description, source FROM numbers WHERE active = TRUE AND magnitude >= '.(strlen($number) - 1).' AND magnitude <= '.(strlen($number) + 1));
   $st->execute();
 
   $results = array();
