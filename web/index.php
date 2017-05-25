@@ -55,6 +55,7 @@ $app->get('/{number}', function($number) use($app) {
   $row['description'] = "YOUR NUMBER!";
   $row['source'] = "https://127.0.0.1";
   $row['hint'] = true;
+  $results[] = $row;
 
   return $app['twig']->render('result.twig', array(
     'number' => $number,
