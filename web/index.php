@@ -39,13 +39,13 @@ $app->get('/', function() use($app) {
 $app->get('/{number}', function($number) use($app) {
   $app['monolog']->addDebug('Looking up '.$number);
 
-  $st = $app['pdo']->prepare('SELECT number, description, source FROM numbers WHERE active = TRUE AND magnitude >= '.(strlen($number) - 1).' AND magnitude <= '.(strlen($number) + 1));
-  $app['monolog']->addDebug('SQL '.'SELECT number, description, source FROM numbers WHERE active = TRUE AND magnitude >= '.(strlen($number) - 1).' AND magnitude <= '.(strlen($number) + 1));
+  $st = $app['pdo']->prepare('SELECT number, description, source FROM numbers WHERE active = TRUE AND magnitude >= '.(strlen($number) - 2).' AND magnitude <= '.(strlen($number)));
+  $app['monolog']->addDebug('SQL '.'SELECT number, description, source FROM numbers WHERE active = TRUE AND magnitude >= '.(strlen($number) - 2).' AND magnitude <= '.(strlen($number)));
   $st->execute();
 
   $results = array();
   while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['name']);
+    $app['monolog']->addDebug('Row ' . $row['number']);
     $results[] = $row;
   }
 

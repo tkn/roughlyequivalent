@@ -10,7 +10,7 @@
 <div class="container">
   <ul class="list-group">
     {% for result in results %}
-      <li class="list-group-item">{{ result }}</li>
+      <li class="list-group-item">{{ result.number }} {{ result.description }}</li>
     {% else %}
       <li class="list-group-item">{{ number|number_format }}</li>
     {% endfor %}
