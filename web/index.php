@@ -48,6 +48,7 @@ $app->get('/{number}', function($number) use($app) {
   $results = array();
   while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
     $app['monolog']->addDebug('Row ' . $row['number']);
+    $row['hint'] = false;
     $results[] = $row;
   }
 
