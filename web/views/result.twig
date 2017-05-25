@@ -8,13 +8,22 @@
   </div>
 </div>
 <div class="container">
-  <ul class="list-group">
-    {% for result in results %}
-      <li class="list-group-item">{{ result.number }} {{ result.description }}</li>
-    {% else %}
-      <li class="list-group-item">{{ number|number_format }}</li>
-    {% endfor %}
-  </ul>
+  <div class="table-responsive">
+    <table class="table">
+      <tbody>
+        {% for result in results|sort %}
+          <tr>
+            <td>{{ result.number }}</td>
+            <td>{{ result.description }} <sup><a href="{{ result.source }}">[source]</a></sup></td>
+          </tr>
+        {% else %}
+          <tr>
+            <td>Nothing like it!</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
   
 
   <a type="button" class="btn btn-lg btn-default" href="https://github.com/tkn/roughlyequivalent"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
