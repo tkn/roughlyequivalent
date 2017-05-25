@@ -13,8 +13,8 @@
       <tbody>
         {% for result in results|sort %}
           <tr>
-            <td>{{ result.number }}</td>
-            <td>{{ result.description }} <sup><a href="{{ result.source }}">[source]</a></sup></td>
+            <td class="text-right">{{ result.number }}</td>
+            <td>{{ result.description }}{% if result.souce %} <sup><a href="{{ result.source }}">[source]</a></sup>{% endif %}</td>
           </tr>
         {% else %}
           <tr>
