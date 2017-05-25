@@ -14,7 +14,7 @@
         {% for result in results|sort %}
           <tr>
             <td class="text-right">{{ result.number }}</td>
-            <td>{{ result.description }}{% if result.souce %} <sup><a href="{{ result.source }}">[source]</a></sup>{% endif %}</td>
+            <td>{{ result.description }}{{ result.souce ? "<sup><a href='{result.source}'>[source]</a></sup>"}</td>
           </tr>
         {% else %}
           <tr>
